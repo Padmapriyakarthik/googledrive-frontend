@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = 'https://googledrive-server.herokuapp.com';
 
-//const BASE_URL = 'https://demo-server-abc.herokuapp.com';
 
 export const login = (email,password)=>{
     return axios
@@ -21,16 +20,6 @@ export const forgetpassword=(email)=>{
     .post(`${BASE_URL}/forgetpassword`,{email})
     .then((res)=>res.data).catch((error)=>(error.response.data));
 }
-/*export const visitUrl =(token,shorturl,email)=>{
-    return axios
-    .get(`${BASE_URL}/short-url/`+shorturl,{ 
-        headers:{
-            authorization:token
-        }
-    },{email}
-    ) 
-    .then((res)=>res.data).catch((error)=>(error.response.data));
-}*/
 
 export const updatepassword=(token,password)=>{
     return axios

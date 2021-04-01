@@ -132,7 +132,7 @@ export const Login = ({handleLogin,history})=>{
     }
     if(ispassword)
     {
-        return(<>
+        return(
 
             <div className="container p-5  center"  style={{backgroundColor: "lightblue"}}>
                 <form >
@@ -168,7 +168,7 @@ export const Login = ({handleLogin,history})=>{
             </div>
             </form>
             </div>
-        </>)
+    )
     }
     if(isSignup)
     {   
