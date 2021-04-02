@@ -1,7 +1,7 @@
 import { getDefaultNormalizer } from "@testing-library/dom"
 import React, { useContext, useEffect, useState } from "react"
 import { WrapperContext } from "../index"
-import { getfile,upload } from "../interaction"
+import { getfile,upload,getdatas } from "../interaction"
 
 export const Drive = (props)=>{
     const {user,token} = useContext(WrapperContext)
@@ -9,7 +9,21 @@ export const Drive = (props)=>{
     const [filename,setfile]=useState("");
 
     const getdata=(file)=>{
-        alert ("Clicked yet to process")
+        getdatas(token,file)
+        .then((data)=>{
+            const {message,bodycontents}=data;
+            if(document)
+            {
+               alert(message);   
+            }
+            else
+            {
+                console.log("no files found")
+            }        
+        })
+        .catch((error)=>{
+            //setMessage("Unsuccessful Login check Username and Password");
+        })
     }
 
     useEffect(()=>{
@@ -71,12 +85,14 @@ export const Drive = (props)=>{
             <div className="input-group">
                 <div className="custom-file">
                     <input type="file" className="custom-file-input" id="inputGroupFile04" placeholder="choose file" onChange={(e)=>setfile(e.target.files[0])}/>
+                   
                     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                 </div>
                 <div className="input-group-append">
                     <button className="btn btn-outline-secondary" type="button" onClick={uploadfile}>Upload</button>
                 </div>
             </div>
+            {{filename}?<span>{filename.name}</span>:<></>}
             </form>
             </li>
             <li className="nav-item">

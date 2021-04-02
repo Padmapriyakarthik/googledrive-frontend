@@ -57,3 +57,15 @@ export const upload=(token,file)=>{
     }
     ).then((res)=>res.data).catch((error)=>(error.response.data));
 }
+
+export const getdatas=(token,file)=>{
+    return axios
+    .get(`${BASE_URL}/file/`+file,
+    {
+        headers:{
+            authorization:token
+        }
+    }
+    ).then((res)=>res.data).catch((error)=>(error.response.data));
+
+}
