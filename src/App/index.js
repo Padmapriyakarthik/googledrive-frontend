@@ -45,8 +45,9 @@ const ProtectRoute = ({component: Component, ...restProps})=>{
                 }else{
                     return (
                         <>
-                            <Component {...props} user={user}/>
+                            
                             <Header logout = {logout} user={user}/>
+                            <Component {...props} user={user}/>
                             
                         </>
                     )
