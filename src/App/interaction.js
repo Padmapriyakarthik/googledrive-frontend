@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://googledrive-server.herokuapp.com';
 
-
+//const BASE_URL="https://localhost:4000"
 export const login = (email,password)=>{
     return axios
     .post(`${BASE_URL}/login`,{email,password})
@@ -32,4 +32,28 @@ export const updatepassword=(token,password)=>{
     }
     )
     .then((res)=>res.data).catch((error)=>(error.response.data));
+}
+
+export const getfile=(token)=>{
+    return axios
+    .get(`${BASE_URL}/getfile`,
+    {
+        headers:{
+            authorization:token
+        }
+    }
+    ).then((res)=>res.data).catch((error)=>(error.response.data));
+
+}
+
+export const upload=(token,file)=>{
+    const formData=new FormData();
+    formData.append('somefile',file);
+   return axios.post(`${BASE_URL}/upload`,formData,
+    {
+        headers:{
+            authorization:token
+        }
+    }
+    ).then((res)=>res.data).catch((error)=>(error.response.data));
 }
