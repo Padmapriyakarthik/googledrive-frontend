@@ -11,10 +11,11 @@ export const Drive = (props)=>{
     const getdata=(file)=>{
         getdatas(token,file)
         .then((data)=>{
-            const {message,bodycontents}=data;
-            if(document)
+            
+            if(data)
             {
-               alert(message);   
+                console.log(data);
+               alert(data);   
             }
             else
             {
