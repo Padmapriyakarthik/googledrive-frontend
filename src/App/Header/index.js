@@ -11,9 +11,13 @@ export const Header = ({logout})=>{
     return(
        <React.Fragment>
            {user.email?(
-               <nav>
-                   <button type="button" className="btn btn-link" onClick={logout}>Logout</button>
-               </nav>
+
+               <ul class="nav justify-content-end">
+               <li class="nav-item">
+               <button type="button" className="btn btn-link" onClick={logout}>Logout</button>
+               </li>
+               </ul>
+              
            ):(<></>)}
        </React.Fragment>
     )

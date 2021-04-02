@@ -36,15 +36,8 @@ export const Login = ({handleLogin,history})=>{
             }
             else
             {
-                alert(message);
-            }
-            
-            console.log(data)
-       
-           console.log("token:::",token);
-           console.log("user::",email);
-            console.log("user::",message);
-        
+                setcustomMessage(message);
+            }        
         })
         .catch((error)=>{
             setMessage("Unsuccessful Login check Username and Password");
@@ -78,11 +71,7 @@ export const Login = ({handleLogin,history})=>{
             const {message}=data;
             
             setMessage(message);
-            alert(message);
-                //history.push(`/login`)
-            
-            // console.log("token:::",data.token);
-            // console.log("user::",data.user)
+
         })
         .catch((error)=>{
             console.log(error)

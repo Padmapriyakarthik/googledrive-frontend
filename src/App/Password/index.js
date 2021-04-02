@@ -43,7 +43,7 @@ export const Password = ({history})=>{
         <div  className="col-12">
             <label htmlFor="newpwd">New Password</label>
             <input 
-                type="text" 
+                type="email" 
                 name="newpwd" 
                 id="newpwd"
                 className="form-control" 
@@ -58,7 +58,7 @@ export const Password = ({history})=>{
             <div  className="col-12">
             <label htmlFor="cnfmpwd">Confirm New Password</label>
             <input 
-                type="text" 
+                type="email" 
                 name="cnfmpwd" 
                 id="cnfmpwd"
                 className="form-control" 
